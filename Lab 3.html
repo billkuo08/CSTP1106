@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="color blue" href="mystyle.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=deivce-width, initial-scale=1.0">
@@ -13,15 +14,15 @@
     }
 
     div.b {
-        font-size: 30px;
+        font-size: 27px;
     }
 
     h1 {
         text-decoration: underline;
     }
 
-    li {
-        color: green;
+    .redtext {
+        color: red;
     }
 </style>
 
@@ -29,13 +30,44 @@
     <div class="a">
         <h1 style="background-color:rgb(136, 2, 2);font-size:50px;">List of groceries</h1>
     </div>
-</body>
-<ul style="list-style-type:disc;circle">
     <div class="b">
-        <li>Dairy</li>
+        <ul style="list-style-type:disc;circle">
+
+            <li style="color:green;">Dairy</li>
+
+            <ul style="list-style-type:circle;">
+
+                <li class="redtext">Milk</li>
+                <li class="redtext">Cheese</li>
+
+            </ul>
     </div>
-</ul>
-<ul style="list-style-type:circle">
-    <li>Milk</li>
-    <li>Cheee</li>
-</ul>    
+
+
+    <ul style="list-style-type:disc;circle">
+        <li>Fruits</li>
+        <link rel="stylesheet" href="External.css">
+
+        <ul style="list-style-type:circle;">
+
+            <li class="redtext">Apples</li>
+            <li class="redtext">Watermelon</li>
+        </ul>
+
+
+
+   <ul style="list-style-type:disc;circle">
+        <li>Vegetables</li>
+            <link rel="stylesheet" href="External.css">
+
+            <ul style="list-style-type:circle">
+
+                <li class="redtext">Tomatoes</li>
+                <li class="redtext">Potatoes</li>
+
+            </ul>
+
+
+
+
+</body>
