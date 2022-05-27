@@ -1,4 +1,4 @@
-grade = 95;
+grade = 69;
 
 // if the 90 <= grade < 100
 // print A+
@@ -41,4 +41,4 @@ if (grade < 100 && grade >= 90){
         }
     }
 
-console.log("Bye!")
+console.log("I don't know if we should link this java script on home page or not so here it is.")
