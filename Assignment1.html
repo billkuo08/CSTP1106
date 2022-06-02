@@ -6,14 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=deivce-width, initial-scale=1.0">
     <title>Assignment 1</title>
-    <link rel="stylesheet" href="Serif.css">
+    <link rel="stylesheet" href="assignment1.css">
 
     <style>
-        .empty {
-            padding: 10px;
+        * {
+            box-sizing: border-box;
+
         }
-        .sub {
-            font-size: 95%
+
+        #sub {
+            font-size: 95%;
+            font-style: italic;
+
+        }
+
+        #panel {
+            font-style: serif;
+            float: left;
+            width: 15%;
+            background-color: rgba(168, 162, 162, 0.726);
+            border: 1px solid blue;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-right: 20px;
+        }
+
+        #content {
+            margin: 0%;
 
         }
     </style>
@@ -22,10 +41,98 @@
 </head>
 
 <body>
-    <div class="empty"></div>
-    <div>
-        <h1 style="font-style: serif">Formula One</h1>
-        <hr>
-        <div id="siteSub" class="sub" style=font-style:italic;>The fastest motorsport in the world</div>
+    <div id="padding: 2em;"></div>
+
+    <div class="panel">
+
+
+        <ul>
+            <li><a href="Home">Main page</a></li>
+            <li><a href="blank">Contents</a></li>
+            <li><a href="blank">Current events</a></li>
+            <li><a href="blank">Random Article</a></li>
+            <li><a href="blank">Contact us</a></li>
+            <li><a href="blank">Donate</a></li>
+        </ul>
+        <ul>Contribute
+            <hr>
+            <li><a href="blank">Help</a></li>
+            <li><a href="blank">Leanr to edit</a></li>
+
+            <li><a href="blank">Community portal</a></li>
+
+            <li><a href="blank">Recent changes</a></li>
+
+            <li><a href="blank">Upload file</a></li>
+
+
+
+        </ul>
+        <ul>Tools
+            <hr>
+            <li><a href="blank">What links here</a></li>
+            <li><a href="blank">Related Changes</a></li>
+
+            <li><a href="blank">Special pages</a></li>
+
+            <li><a href="blank">Permanent link</a></li>
+
+            <li><a href="blank">Page Information</a></li>
+
+        </ul>
+
+
     </div>
+
+
+    <div id="content">
+
+
+        <h1 class="header">Formula One</h1>
+        <hr>
+        <div id="subtittle" class="sub">The fastest motorsport in the world</div>
+        <div class="article">
+            <p><b>Formula One</b> (also known as <b>Formula 1</b> or <b>F1</b>) is the highest class of
+                international
+                racing for <a href="link">open-wheel
+                    single-seater formula racing cars</a> sanctioned by the <a href="link">Fédération Internationale de
+                    l'Automobile</a> (FIA). The World
+                Drivers' Championship, which became the FIA Formula One World Championship in 1981, has been one of the
+                premier
+                forms of racing around the world since its inaugural season in 1950. The word formula in the name refers
+                to
+                the
+                set of rules to which all participants' cars must conform.<sup>[1]</sup> A Formula One season consists
+                of a
+                series of races, known as Grands Prix, which take place worldwide on both purpose-built circuits and
+                closed
+                public roads.
+            </p>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="background-color:rgb(218, 30, 30);color: white;"><b>Formula One</b></th>
+                </tr>
+
+            </thead>
+            <tbody>
+
+                <td>
+                    <a href="./F1.png" class="image">
+                        <image
+                            src="https://cdn.i.haymarketmedia.asia/?n=campaign-asia%2Fcontent%2FcroppedF1logo.png&h=570&w=855&q=100&v=20170226&c=1"
+                            alt style="width:280" height="70">
+                    </a>
+                </td>
+
+
+                </tobdy>
+
+        </table>
+
+
+    </div>
+
+
 </body>
