@@ -8,12 +8,12 @@ li {
 
 
 ol {
-    font-style: sans-serif;
+    font-family: sans-serif;
     font-size: 1em;
 }
 
 .panel {
-    font-style: sans-serif;
+    font-family: sans-serif;
     float: left;
     width: 15%;
     height: 36em;
@@ -26,9 +26,10 @@ ol {
 
 
 .article {
-    font-style: sans-serif;
+    font-family: sans-serif;
     font-size: 1.1em;
     padding-top: 25px;
+    line-height: 1.6;
 }
 
 table {
@@ -40,7 +41,7 @@ table {
 }
 
 .content {
-    font-style: sans-serif;
+    font-family: sans-serif;
     font-size: 130%;
     float: left;
     background-color: rgb(206, 206, 206);
@@ -49,4 +50,9 @@ table {
     margin-right: 20px;
     width: 30%;
 
+}
+.sub {
+    font-family: sans-serif;
+    font-size: 95%;
+    text-align:center;
 }
