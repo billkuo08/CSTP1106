@@ -14,28 +14,39 @@
 
         }
 
-        #overall {
-            width: 85%;
-        }
-
-        #content {
-            font-style: sans-serif;
-            float: left;
-            background-color: rgb(206, 206, 206);
-            border: 1px solid black;
-            padding-right: 20px;
-            margin-right: 20px;
-            width: 10%;
-        }
-
         header.h1,
         h2,
-        h3 {
+        h3,
+        h4 {
             font-style: serif;
             font-size: 2em;
         }
-    </style>
 
+        #section1,
+        #section2 {
+            width: 85%;
+        }
+
+        #example {
+            padding-top: 40px;
+            font-style: sans-serif;
+            font-size: 1.1em;
+            float: left;
+
+        }
+
+        #see {
+            float: left;
+        }
+
+        #see li {
+            font-size: 1.25em;
+            float: left;
+            font-style: sans-serif;
+            padding-right: 60px;
+
+        }
+    </style>
 
 </head>
 
@@ -81,10 +92,10 @@
 
 
     </div>
-    <div id="overall">
+    <div id="section1">
         <h2 class="header">Lorem Ipsum</h2>
         <hr>
-        <div class="sub">From Wikipedia, the free encyclopedia
+        <div style="font-size: 95%;">From Wikipedia, the free encyclopedia
         </div>
         <div class="article">
             <table>
@@ -98,13 +109,13 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="sub" style="text-align: center;">Lorem Ipsum image from uplash</div>
+                            <div class="sub" style="text-align: center;">Lorem Ipsum image from unsplash</div>
                         </td>
                     </tr>
                     <td>
                         <a href="./Lorem Ipsum.jpg">
                             <image src="https://media.istockphoto.com/photos/email-marketing-picture-id933700928" alt
-                                style="width:400" height="250">
+                                style="width:400px; height:250px;">
                         </a>
                     </td>
 
@@ -142,30 +153,74 @@
 
         </div>
     </div>
-    <div id="content">
+
+    <div class="content">
         <ol><b>Contents</b>
-            <li><a href="#Example text">Example text</a></li>
+            <li><a href="#example">Example text</a></li>
             <li><a href="blank">Source text</a></li>
-            <li><a href="blank">See also</a></li>
+            <li><a href="#see">See also</a></li>
             <li><a href="blank">Refernce</a></li>
             <li><a href="blank">External links</a></li>
         </ol>
     </div>
-    <div id="Example text">
-        <h3 class="header">Example text</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-            nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.</p>
+
+
+    <div id="section2">
+
+
+        <div id="example">
+            <h3 class="header">Example text</h3>
+            <hr>
+            <table>
+                <tbody>
+                    <th>
+                        <a href="./Lorem Ipsum2.jpg">
+                            <image
+                                src="https://media.istockphoto.com/photos/calligraphic-handwritten-letter-handwriting-manuscript-texture-picture-id537889496"
+                                alt style="width:350px; height:200px;">
+                        </a>
+                    </th>
+                    <tr>
+                        <td>
+
+                            <div class="sub" style="text-align: center;">Lorem Ipsum image from unsplash</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="sub;style=font-style: serif;">A common form of Lorem ipsum reads:</div>
+
+
+            <p style="text-indent:50px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                incididunt ut labore et
+                dolore
+                magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat
+                nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit
+                anim id est laborum.
+            </p>
+        </div>
 
     </div>
+    <div id="see">
+        <h4>See also</h4>
+        <hr>
+        <ul style="list-style-type:disc">
 
+            <li><a href="fake">Asemic writing</a></li>
+            <li><a href="fake">Etaoin shrdlu</li></a>
+            <li><a href="fake">Lenna</li></a>
+            <li><a href="fake">Li Europan lingues</li></a>
+        </ul>
 
-
-
-
-
-
-
+        <ul style="list-style-type:disc">
+            <li><a href="fake">List of Latin phrases</li></a>
+            <li><a href="fake">Metasyntactic variable</li></a>
+            <li><a href="fake">Pangram</li></a>
+            <li><a href="fake">The quick brown fox jumps over the lazy dog</li></a>
+            <li><a href="fake">To come (TK)</li></a>
+        </ul>
+    </div>
 </body>
