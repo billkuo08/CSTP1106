@@ -5,6 +5,12 @@
 #header,
 #footer {
     text-align: center;
+
+}
+
+#footer {
+    clear: both;
+
 }
 
 body {
@@ -53,21 +59,27 @@ div {
     width: 30%;
     float: right;
     padding-left: 10px;
-    margin-bottom: 10px;
+
 }
-@media screen and (max-width: 600px){
-    #left_column, #right_column{
+
+@media screen and (max-width: 600px) {
+
+    #left_column,
+    #right_column {
         float: none;
         width: 100%;
+        padding-left: 0px;
     }
-    
+
 }
+
 @media screen and (max-width:400px) {
-    #nav a{
+    #nav a {
         float: none !important;
         width: 100%;
     }
-    .card img{
+
+    .card img {
         width: 100%;
     }
 }
