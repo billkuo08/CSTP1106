@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 #header,
 #footer {
     text-align: center;
@@ -8,11 +12,19 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h1,
+h2,
+h3,
+div {
+    margin: 0px;
+}
+
 #nav {
     background-color: #333;
     overflow: hidden;
 }
-#nav a:hover{
+
+#nav a:hover {
     background-color: #f1f1f1;
     color: #333;
 }
@@ -24,4 +36,22 @@ body {
     float: left;
     padding: 14px 16px;
     text-align: center;
+}
+
+.card {
+    background-color: #a2b9bc;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+#left_column {
+    width: 70%;
+    float: left;
+}
+
+#right_column {
+    width: 30%;
+    float: right;
+    padding-left: 10px;
+    margin-bottom: 10px;
 }
