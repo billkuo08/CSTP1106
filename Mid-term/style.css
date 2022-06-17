@@ -7,6 +7,8 @@ h1,
 h2 {
     margin: 0px;
 }
+h3,h4 { text-align: center;
+}
 
 #sub {
     color: brown;
@@ -43,4 +45,11 @@ nav {
 nav :hover {
     background-color: grey;
     color: white;
+}
+#leftimg {
+    margin-right:30px;
+}
+#rightimg{
+    margin-left:30px;
+
 }
