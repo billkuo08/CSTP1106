@@ -53,3 +53,25 @@ nav :hover {
     margin-left:30px;
 
 }
+
+@media screen and (max-width: 600px) {
+
+    #left_column,
+    #right_column {
+        float: none;
+        width: 100%;
+        padding-left: 0px;
+    }
+
+}
+
+@media screen and (max-width:400px) {
+    #nav a {
+        float: none !important;
+        width: 100%;
+    }
+
+    .card img {
+        width: 100%;
+    }
+}
