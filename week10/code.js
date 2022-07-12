@@ -16,3 +16,5 @@ function setup() {
     $('#get_data_button').click(init_ajax);
 }
 $(document).ready(setup);
+
+
