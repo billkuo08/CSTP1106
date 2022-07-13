@@ -3,10 +3,13 @@
 function process_response(data) {
     const moviesArr = [];
     moviesArr.push(data);
-    console.log(moviesArr.result)
+    console.log(moviesArr)
     
-    for ( let movies of moviesArr) {
+    
+    for (let movies of moviesArr) {
         console.log(movies);
+        
+        
     }
 
 
