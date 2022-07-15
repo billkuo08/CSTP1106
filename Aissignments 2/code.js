@@ -4,21 +4,37 @@ function process_response(data) {
     const moviesArr = [];
     moviesArr.push(data);
     let infos = '';
-
+    // const backImgArr = [];
+    // const titlesArr = [];
     for (let moviesData of moviesArr) {
+
         for (let movies of moviesData.results) {
-            console.log(movies.original_title);
+            console.log(movies.backdrop_path);
+
             infos = `<p>${movies.original_title}</p>\n<p>${movies.overview}</p>  
             <img id='theImg' src=https://image.tmdb.org/t/p/w500/${movies.poster_path}></img>`;
 
-            $('#result').append(infos);
+            // titlesArr.push(movies.original_title);
+            // backImgArr.push(movies.backdrop_path);
 
-           
-            //hide.() show.()
+            showThis_ = function () {
+
+                $('#right_div').html(`<img id='theImg2' src=https://image.tmdb.org/t/p/original/${movies.backdrop_path} width=100%></img>`);
+
+            }
+
+
+            $('#result').append(infos);
+            $('#result').append(`<br><button class="img_button" onclick="showThis_(this)"> backdrop image </button>`);
+
+
         }
-    } 
+
+
+    }
 
 }
+
 
 function init_ajax() {
     movie_name = $('#movie_name_input').val().toLowerCase();
