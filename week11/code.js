@@ -44,8 +44,8 @@ function calculate_divide() {
 
 }
 
-function hideThis_(para) {
-    $(para).parent().hide()
+function hideThis_(oldResult) {
+    $(oldResult).parent().hide()
 }
 
 
