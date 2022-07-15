@@ -8,13 +8,13 @@ function process_response(data) {
     for (let moviesData of moviesArr) {
         for (let movies of moviesData.results) {
             console.log(movies.original_title);
-            infos = `<p>${movies.original_title}</p>\n${movies.overview}`
+            infos = `<p>${movies.original_title}</p>\n<p>${movies.overview}</p>  
+            <img id='theImg' src=https://image.tmdb.org/t/p/w500/${movies.poster_path}></img>`;
 
             $('#result').append(infos);
 
-            // $('#result2').html(`<p>${movies.original_title}</p>\n${movies.overview}`);
-            // $('#result3').html(`<img id='theImg' src=https://image.tmdb.org/t/p/w500/${data.poster_path} />`);
-            // // https://image.tmdb.org/t/p/w500//pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg 
+           
+            //hide.() show.()
         }
     } 
 
