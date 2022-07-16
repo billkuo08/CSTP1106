@@ -1,52 +1,80 @@
 
 
 function process_response(data) {
-    const moviesArr = [];
-    moviesArr.push(data);
+
     let infos = '';
-    // const backImgArr = [];
-    // const titlesArr = [];
-    for (let moviesData of moviesArr) {
-
-        for (let movies of moviesData.results) {
-            console.log(movies.backdrop_path);
-
-            infos = `<p>${movies.original_title}</p>\n<p>${movies.overview}</p>  
-            <img id='theImg' src=https://image.tmdb.org/t/p/w500/${movies.poster_path}></img>`;
-
-            // titlesArr.push(movies.original_title);
-            // backImgArr.push(movies.backdrop_path);
-
-            showThis_ = function () {
-
-                $('#right_div').html(`<img id='theImg2' src=https://image.tmdb.org/t/p/original/${movies.backdrop_path} width=100%></img>`);
-
-            }
+    const backdropsArr = [];
+    let backdropNum = 0;
 
 
-            $('#result').append(infos);
-            $('#result').append(`<br><button class="img_button" onclick="showThis_(this)"> backdrop image </button>`);
+    for (i = 0; i < data.results.length; i++) {
 
+        infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>
+        <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"></img>`;
+
+        backdropsArr.push(data.results[i].backdrop_path);
+
+
+        showThis = function () {
+            console.log(backdropNum);
+
+            $('#right_div').html(`<img id="${backdropNum}" src="https://image.tmdb.org/t/p/original${backdropsArr[backdropNum]}" width=100%.show()></img>`);
+            backdropNum++;
 
         }
 
 
+        $("#result").append(`${infos}<br><button id="back_drop" onclick="showThis(this)"> backdrop image </button><br><br>`);
+
+
     }
 
+    // console.log(backdropsArr);
 }
 
 
 function init_ajax() {
-    movie_name = $('#movie_name_input').val().toLowerCase();
+    movie_name = $('#movie_name_input').val();
     $.ajax({
         url: `https://api.themoviedb.org/3/search/movie?api_key=282b574a1934c914c2e6ff9803175c12&query=${movie_name}`,
         type: 'GET',
         success: process_response
     })
-
 }
 
 function setup() {
     $('#get_info_button').click(init_ajax);
 }
 $(document).ready(setup);
+
+
+
+
+// function process_response(data) {
+
+//     let infos = '';
+
+
+//     for (i = 0; i < data.results.length; i++) {
+
+//         infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>
+//         <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"></img>`;
+
+
+//         showThis = function () {
+
+//             for (let movies of data.results) {
+
+//                     $('#right_div').append(`<img id="thImg2" src="https://image.tmdb.org/t/p/original/${movies.backdrop_path}" width=100%.show()></img>`);
+                
+//             }
+//         }
+
+
+//         $("#result").append(`${infos}<br><button id="back_drop" onclick="showThis(this)"> backdrop image </button><br><br>`);
+
+
+//     }
+
+// }
+

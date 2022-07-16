@@ -40,8 +40,6 @@ function calculate_divide() {
     $('#history').append(`<div class='div_class'>${x} / ${y} = ${result} 
     <button class="hide_row" onclick="hideThis_(this)"> Hide this! </button></div>`);
 
-
-
 }
 
 function hideThis_(oldResult) {
