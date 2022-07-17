@@ -10,21 +10,21 @@ const process_response = (data) => {
         infos = `<p>${data.results[movies].original_title}</p>\n<p>${data.results[movies].overview}</p>
         <img src="https://image.tmdb.org/t/p/w500/${data.results[movies].poster_path}"></img>`;
         $("#results").append(`${infos}<br>`);
-        $("#results").append(`<button onclick="showImg(this)" id="bigImg${movies}" >Show big image</button><br><br>`);
-        backdropsArr.push(`<img src="https://image.tmdb.org/t/p/w500/${data.results[movies].backdrop_path}">`)
+        $("#results").append(`<button id="bigImg${movies}">Show big image</button><br><br>`);
+        backdropsArr.push(`<img src="https://image.tmdb.org/t/p/original/${data.results[movies].backdrop_path}" width=100%>`)
     }
-    showImg = function () {
-        for (i = 0; i < backdropsArr.length; i++) {
-            let backImges = `#bigImg${i}`;
+    // showImg = function () {
+    for (let i = 0; i < backdropsArr.length; i++) {
+        let backImg = `#bigImg${i}`;
 
-            $(backImges).click(() => {
-                $("#rightdiv").empty().append(backdropsArr[i]);
-            });
-            console.log(backdropsArr[i])
-  
-        }
+        $(backImg).click(() => {
+            $("#rightdiv").empty().append(backdropsArr[i]);
+        });
+        console.log(backdropsArr[i])
+
     }
 }
+
 
 
 
@@ -99,6 +99,7 @@ $(document).ready(setup);
 //     }
 // }
 
+// onclick="showImg(this)"
 
 
 
