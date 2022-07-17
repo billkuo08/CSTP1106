@@ -10,14 +10,14 @@ function process_response(data) {
         infos = `<p>${data.results[movies].original_title}</p>\n<p>${data.results[movies].overview}</p>
         <img src="https://image.tmdb.org/t/p/w500/${data.results[movies].poster_path}"></img>`;
         $("#results").append(`${infos}<br>`);
-        $("#results").append(`<button id="alt${movies}"> Show alternative image </button><br><br>`);
+        $("#results").append(`<button id="alt${movies}">Show alternative image</button><br><br>`);
         backdropsArr.push(`<img src="https://image.tmdb.org/t/p/original/${data.results[movies].backdrop_path} width=100%">`)
     }
 
     for (i = 0; i < backdropsArr.length; i++) {
         let altImges = `#alt${i}`;
         $(altImges).click(() => {
-            $("#right_div").empty().append(backdropsArr[i])
+            $("#rightdiv").empty().append(backdropsArr[i]);
         });
     }
 
