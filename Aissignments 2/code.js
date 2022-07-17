@@ -11,9 +11,9 @@ const process_response = (data) => {
         <img src="https://image.tmdb.org/t/p/w500/${data.results[movies].poster_path}"></img>`;
         $("#results").append(`${infos}<br>`);
         $("#results").append(`<button id="bigImg${movies}">Show big image</button><br><br>`);
-        backdropsArr.push(`<img src="https://image.tmdb.org/t/p/original/${data.results[movies].backdrop_path}" width=100%>`)
+        backdropsArr.push(`<img src="https://image.tmdb.org/t/p/original/${data.results[movies].backdrop_path}" width=50%>`)
     }
-    // showImg = function () {
+    
     for (let i = 0; i < backdropsArr.length; i++) {
         let backImg = `#bigImg${i}`;
 
