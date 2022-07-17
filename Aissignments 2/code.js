@@ -15,10 +15,10 @@ const process_response = (data) => {
     }
     showImg = function () {
         for (i = 0; i < backdropsArr.length; i++) {
-            let altImges = `#bigImg${i}`;
+            let backImges = `#bigImg${i}`;
 
-            $(altImges).click(() => {
-                $("#rightdiv").show(backdropsArr[i]);
+            $(backImges).click(() => {
+                $("#rightdiv").empty().append(backdropsArr[i]);
             });
             console.log(backdropsArr[i])
   
@@ -29,17 +29,17 @@ const process_response = (data) => {
 
 
 
-const init_ajax = () => {
-    let movie_name = $("#movie_name_input").val();
+const initajax = () => {
+    let name = $("#moviesname").val();
     $.ajax({
-        url: `https://api.themoviedb.org/3/search/movie?api_key=282b574a1934c914c2e6ff9803175c12&query=${movie_name}`,
+        url: `https://api.themoviedb.org/3/search/movie?api_key=282b574a1934c914c2e6ff9803175c12&query=${name}`,
         type: "GET",
         success: process_response
     })
 }
 
 const setup = () => {
-    $("#get_info_button").click(init_ajax);
+    $("#getResults").click(initajax);
 }
 
 $(document).ready(setup);
