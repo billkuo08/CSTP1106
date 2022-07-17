@@ -3,38 +3,28 @@
 function process_response(data) {
 
     let infos = '';
-    const backdropsArr = [];
-    let backdropNum = 0;
+    let backdropsArr = [];
 
 
-    for (i = 0; i < data.results.length; i++) {
-
-        infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>
-        <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"></img>`;
-
-        backdropsArr.push(data.results[i].backdrop_path);
-
-
-        showThis = function () {
-            console.log(backdropNum);
-
-            $('#right_div').html(`<img id="${backdropNum}" src="https://image.tmdb.org/t/p/original${backdropsArr[backdropNum]}" width=100%.show()></img>`);
-            backdropNum++;
-
-        }
-
-
-        $("#result").append(`${infos}<br><button id="back_drop" onclick="showThis(this)"> backdrop image </button><br><br>`);
-
-
+    for (let movies in data.results) {
+        infos = `<p>${data.results[movies].original_title}</p>\n<p>${data.results[movies].overview}</p>
+        <img src="https://image.tmdb.org/t/p/w500/${data.results[movies].poster_path}"></img>`;
+        $("#results").append(`${infos}<br><button id="Alt${movies}"> Show alternative image </button><br><br>`);
+        backdropsArr.push(`<img src="https://image.tmdb.org/t/p/w500${data.results[movies].backdrop_path}">`)
     }
 
-    // console.log(backdropsArr);
+    for (i = 0; i < backdropsArr.length; i++) {
+        // let altImges = `#A${bigImges}`;
+        $(`#Alt${i}`).click(() => {
+            $("#right_div").html(backdropsArr[i])
+        });
+    }
+
 }
 
 
 function init_ajax() {
-    movie_name = $('#movie_name_input').val();
+    let movie_name = $("#movie_name_input").val();
     $.ajax({
         url: `https://api.themoviedb.org/3/search/movie?api_key=282b574a1934c914c2e6ff9803175c12&query=${movie_name}`,
         type: 'GET',
@@ -43,38 +33,63 @@ function init_ajax() {
 }
 
 function setup() {
-    $('#get_info_button').click(init_ajax);
+    $("#get_info_button").click(init_ajax);
 }
+
 $(document).ready(setup);
 
 
 
-
-// function process_response(data) {
-
-//     let infos = '';
+// The function which displays all of the
+// static info into the DOM
 
 
-//     for (i = 0; i < data.results.length; i++) {
+// const processData = (data) => {
 
-//         infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>
-//         <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"></img>`;
+//     // We will store all the backdrops here
+//     let backdropImg = [];
 
-
-//         showThis = function () {
-
-//             for (let movies of data.results) {
-
-//                     $('#right_div').append(`<img id="thImg2" src="https://image.tmdb.org/t/p/original/${movies.backdrop_path}" width=100%.show()></img>`);
-                
-//             }
-//         }
-
-
-//         $("#result").append(`${infos}<br><button id="back_drop" onclick="showThis(this)"> backdrop image </button><br><br>`);
-
-
+//     // gets all necessary data from api
+//     // and either displays it or stores
+//     // it for future use
+//     for (let movies in data.results) {
+//         $("#movieResults").append(JSON.stringify(`${data.results[movies].original_title}<br>`));
+//         $("#movieResults").append(JSON.stringify(`${data.results[movies].overview}<br><br>`));
+//         $("#movieResults").append(`<img src="https://image.tmdb.org/t/p/w500/${data.results[movies].poster_path}"><br>`);
+//         $("#movieResults").append(`<button id="img${movies}">See background image!</button><br>`);
+//         backdropImg.push(`<img src="https://image.tmdb.org/t/p/w500/${data.results[movies].backdrop_path}">`);
 //     }
 
+//     // this will go through the buttons
+//     // and checks if there is one which is
+//     // pressed and shows the backdrop
+//     for (let i = 0; i < backdropImg.length; i++) {
+//         let imgCheck = `#img${i}`;
+//         $(imgCheck).click(() => {
+//             $("#topRight").empty().append(backdropImg[i]);
+//         });
+//     }
 // }
+
+// // This function gets the movie api
+// // and sends it to the processData
+// // function to run
+// const searchMovie = () => {
+//     let movie = $("#searchBar").val();
+//     $.ajax({
+//         url: `https://api.themoviedb.org/3/search/movie?api_key=0129b7a280b04a550855f7ce4602c30a&language=en-US&query=${movie}&page=1&include_adult=false`,
+//         type: "GET",
+//         success: processData
+//     })
+// }
+
+// // This runs when the user enter a value
+// // in the search box and clicks the
+// // search button
+// const setup = () => {
+//     $("#searchButton").click(searchMovie);
+// }
+
+// // Starts up when page is loaded
+// $(document).ready(setup);
 
