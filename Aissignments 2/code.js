@@ -15,15 +15,15 @@ const process_response = (data) => {
     }
 
     for (let i = 0; i < backdropsArr.length; i++) {
-        let backImg = `#bigImg${i}`;
 
-        $(backImg).click(() => {
+        $(`#bigImg${i}`).click(() => {
             $("#rightdiv").empty().append(backdropsArr[i]);
         });
-        console.log(backdropsArr[i])
 
     }
 }
+
+
 
 
 
@@ -40,6 +40,12 @@ const initajax = () => {
 
 const setup = () => {
     $("#getResults").click(initajax);
+    $("#moviesname").keypress(function (event) {
+        if (event.keyCode === 13) {
+            initajax();
+        }
+    
+    });
 }
 
 $(document).ready(setup);
