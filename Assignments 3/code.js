@@ -1,10 +1,18 @@
 let infos = "";
-let backdropsArr = [];
+// let backdropsArr = [];
 var menu_value = "";
 var data = "";
 var pageNumber = 1;
 var pageSize = "";
 
+const initajax = () => {
+    var name = $("#moviesname").val();
+    $.ajax({
+        url: `https://api.themoviedb.org/3/search/movie?api_key=282b574a1934c914c2e6ff9803175c12&query=${name}`,
+        type: "GET",
+        success: process_response
+    });
+}
 
 const process_response = (x) => {
 
@@ -16,20 +24,11 @@ const process_response = (x) => {
 }
 
 
-const initajax = () => {
-    var name = $("#moviesname").val();
-    $.ajax({
-        url: `https://api.themoviedb.org/3/search/movie?api_key=282b574a1934c914c2e6ff9803175c12&query=${name}`,
-        type: "GET",
-        success: process_response
-    });
-}
 
 const display = () => {
     $("#results").empty();
     $("#rightdiv").empty();
-    backdropsArr = [];
-  
+
     pageSize = Number(pageSize);
     firstIndex = pageSize * (pageNumber - 1);
     lastIndex = pageSize * (pageNumber - 1) + (pageSize - 1)
@@ -38,24 +37,12 @@ const display = () => {
         <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"height="300px">`;
 
         $("#results").append(`${infos}<br>`);
-        $("#results").append(`<button id="bigImg${i}">Show big image</button><br><hr>`);
-        backdropsArr.push(`<img src="https://image.tmdb.org/t/p/original${data.results[i].backdrop_path}"width="50%">`)
-    }
-    for (let j = 0; j < backdropsArr.length; j++) {
-
-        $(`#bigImg${j}`).click(() => {
-            $("#rightdiv").html(backdropsArr[j]);
-        });
-
+        z = `<button id="${data.results[i].backdrop_path}" class="backdropButton">Show big image</button><br><hr>`;
+        $("#results").append(z)
+        // backdropsArr.push(`<img src="https://image.tmdb.org/t/p/original${data.results[i].backdrop_path}"width="50%">`)
     }
 
-}
 
-
-function changePageNum() {
-    pageNumber = $(this).attr("id");
-    pageNumber = Number(pageNumber);
-    display()
 }
 
 function paginateMenu() {
@@ -66,9 +53,32 @@ function paginateMenu() {
         $("#button").append(`<button class ="display" id="${i}">${i}</button>`)
         $("#last_page").html(`<button class="last" id=${Math.ceil(data.results.length / pageSize)}>Last</button>`)
     }
-   
+
 
 }
+
+function backDropImg() {
+    // for (let j = 0; j < backdropsArr.length; j++) {
+
+    //     $(`#bigImg${j}`).click(() => {
+    //         $("#rightdiv").html(backdropsArr[j]);
+    //     });
+
+    // }
+    w = $(this).attr("id");
+    $("#rightdiv").html(`<img src="https://image.tmdb.org/t/p/original${w}"width="50%">`)
+
+}
+
+
+function changePageNum() {
+    pageNumber = $(this).attr("id");
+    pageNumber = Number(pageNumber);
+    display()
+}
+
+
+
 
 const setup = () => {
     $("#getResults").click(initajax);
@@ -77,6 +87,9 @@ const setup = () => {
             initajax();
         }
     });
+
+    $("body").on("click", ".backdropButton", backDropImg);
+
     pageSize = $("#page_size option:selected").val();
     $("#page_size").change(function () {
         pageSize = $("#page_size option:selected").val();
