@@ -35,10 +35,10 @@ const display = () => {
     lastIndex = pageSize * (pageNumber - 1) + (pageSize - 1)
     for (i = firstIndex; i <= lastIndex; i++) {
         infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>
-        <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"></img>`;
+        <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"height="300px">`;
 
         $("#results").append(`${infos}<br>`);
-        $("#results").append(`<button id="bigImg${i}">Show big image</button><br><br>`);
+        $("#results").append(`<button id="bigImg${i}">Show big image</button><br><hr>`);
         backdropsArr.push(`<img src="https://image.tmdb.org/t/p/original${data.results[i].backdrop_path}"width="50%">`)
     }
     for (let j = 0; j < backdropsArr.length; j++) {
