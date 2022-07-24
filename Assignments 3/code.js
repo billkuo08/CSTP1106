@@ -1,9 +1,8 @@
 let infos = "";
-// let backdropsArr = [];
-var menu_value = "";
-var data = "";
-var pageNumber = 1;
-var pageSize = "";
+currentPage = 1;
+data = "";
+pageNumber = 1;
+pageSize = "";
 
 const initajax = () => {
     var name = $("#moviesname").val();
@@ -24,7 +23,6 @@ const process_response = (x) => {
 }
 
 
-
 const display = () => {
     $("#results").empty();
     $("#rightdiv").empty();
@@ -35,13 +33,10 @@ const display = () => {
     for (i = firstIndex; i <= lastIndex; i++) {
         infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>
         <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"height="300px">`;
-
         $("#results").append(`${infos}<br>`);
         z = `<button id="${data.results[i].backdrop_path}" class="backdropButton">Show big image</button><br><hr>`;
         $("#results").append(z)
-        // backdropsArr.push(`<img src="https://image.tmdb.org/t/p/original${data.results[i].backdrop_path}"width="50%">`)
     }
-
 
 }
 
@@ -49,22 +44,17 @@ function paginateMenu() {
     $("#button").empty();
 
     for (i = 1; i <= Math.ceil(data.results.length / pageSize); i++) {
+        console.log(i)
         $("#first_page").html(`<button class="first" id=${1}>First</button>`)
         $("#button").append(`<button class ="display" id="${i}">${i}</button>`)
         $("#last_page").html(`<button class="last" id=${Math.ceil(data.results.length / pageSize)}>Last</button>`)
+        
     }
-
 
 }
 
 function backDropImg() {
-    // for (let j = 0; j < backdropsArr.length; j++) {
-
-    //     $(`#bigImg${j}`).click(() => {
-    //         $("#rightdiv").html(backdropsArr[j]);
-    //     });
-
-    // }
+ 
     w = $(this).attr("id");
     $("#rightdiv").html(`<img src="https://image.tmdb.org/t/p/original${w}"width="50%">`)
 
@@ -75,6 +65,12 @@ function changePageNum() {
     pageNumber = $(this).attr("id");
     pageNumber = Number(pageNumber);
     display()
+    console.log(pageNumber)
+    if (pageNumber > 1 || pageNumber === 7) {
+        $("#prev").html(`<button class="previous" id="${pageNumber - 1}">Prev.</button>`)
+        $("#next").html(`<button class="next" id="${pageNumber + 1}">Next</button>`)
+    }
+
 }
 
 
@@ -98,6 +94,8 @@ const setup = () => {
     $("body").on("click", ".display", changePageNum);
     $("body").on("click", ".first", changePageNum)
     $("body").on("click", ".last", changePageNum)
+    $("body").on("click", ".previous", changePageNum)
+    $("body").on("click", ".next", changePageNum)
 
 
 }
