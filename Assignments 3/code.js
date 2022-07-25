@@ -49,8 +49,8 @@ function changePageNum() {
     pageNumber = Number(pageNumber);
     console.log(pageNumber)
     if (pageNumber > 1) {
-        $("#prev").html(`<button class="previous" id="${- 1}">Prev.</button>`)
-        $("#next").html(`<button class="next" id="${j + 1}">Next</button>`)
+        $("#prev").html(`<button class="previous" id="${pageNumber- 1}">Prev.</button>`)
+        $("#next").html(`<button class="next" id="${pageNumber + 1}">Next</button>`)
 
     }
     display()
