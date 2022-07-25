@@ -34,7 +34,7 @@ function display() {
     pageSize = Number(pageSize);
     firstIndex = pageSize * (pageNumber - 1);
     lastIndex = pageSize * (pageNumber - 1) + (pageSize - 1)
-    for (let i = firstIndex; i <= lastIndex; i++) {
+    for (i = firstIndex; i <= lastIndex; i++) {
         infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>
         <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"height="300px">`;
         $("#results").append(`${infos}<br>`);
@@ -48,21 +48,30 @@ function changePageNum() {
     pageNumber = $(this).attr("id");
     pageNumber = Number(pageNumber);
     console.log(pageNumber)
-    if (pageNumber > 1) {
-        $("#prev").html(`<button class="previous" id="${pageNumber- 1}">Prev.</button>`)
-        $("#next").html(`<button class="next" id="${pageNumber + 1}">Next</button>`)
+    // if (pageNumber > 1) {
+    //     $("#next").html(`<button class="next" id="${pageNumber + 1}">Next</button>`)
 
+    // }
+    // if (pageNumber <= Math.ceil(data.results.length / pageSize)) {
+    //     $("#prev").html(`<button class="previous" id="${pageNumber - 1}">Prev.</button>`)
+    // }
+    if (pageNumber > 1 && pageNumber <= Math.ceil(data.results.length / pageSize)) {
+        $("#next").html(`<button class="next" id="${pageNumber + 1}">Next</button>`)
+        $("#prev").html(`<button class="previous" id="${pageNumber - 1}">Prev.</button>`)
+    
     }
     display()
-
 }
+
+
+
+
 
 function paginateMenu() {
     $("#button").empty();
-
-    for (let j = 1; j <= Math.ceil(data.results.length / pageSize); j++) {
+    for (i = 1; i <= Math.ceil(data.results.length / pageSize); i++) {
         $("#first_page").html(`<button class="first" id=${1}>First</button>`)
-        $("#button").append(`<button class ="display" id="${j}">${j}</button>`)
+        $("#button").append(`<button class ="display" id="${i}">${i}</button>`)
         $("#last_page").html(`<button class="last" id=${Math.ceil(data.results.length / pageSize)}>Last</button>`)
 
     }
@@ -90,6 +99,9 @@ function setup() {
     $("body").on("click", ".last", changePageNum)
     $("body").on("click", ".previous", changePageNum)
     $("body").on("click", ".next", changePageNum)
+    $("body").on("click", "#page_size", "option", display)
+    $("body").on("click", "#page_size", "option", paginateMenu)
+
 
 
 }
