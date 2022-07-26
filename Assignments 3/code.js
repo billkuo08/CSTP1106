@@ -34,7 +34,7 @@ function display() {
     pageSize = Number(pageSize);
     firstIndex = pageSize * (pageNumber - 1);
     lastIndex = pageSize * (pageNumber - 1) + (pageSize - 1)
-    for (i = firstIndex; i <= lastIndex; i++) {
+    for (i = firstIndex; i <= lastIndex && i < 20; i++) {
         infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>
         <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"height="300px">`;
         $("#results").append(`${infos}<br>`);
@@ -48,19 +48,40 @@ function changePageNum() {
     pageNumber = $(this).attr("id");
     pageNumber = Number(pageNumber);
     console.log(pageNumber)
-    // if (pageNumber > 1) {
-    //     $("#next").html(`<button class="next" id="${pageNumber + 1}">Next</button>`)
 
-    // }
-    // if (pageNumber <= Math.ceil(data.results.length / pageSize)) {
-    //     $("#prev").html(`<button class="previous" id="${pageNumber - 1}">Prev.</button>`)
-    // }
-    if (pageNumber > 1 && pageNumber <= Math.ceil(data.results.length / pageSize)) {
-        $("#next").html(`<button class="next" id="${pageNumber + 1}">Next</button>`)
-        $("#prev").html(`<button class="previous" id="${pageNumber - 1}">Prev.</button>`)
-    
+    if (pageNumber > 1) {
+        $("#prev").html(`<button class="previous" id="${pageNumber}">Prev.</button>`)
+        $("#next").html(`<button class="next" id="${pageNumber}">Next</button>`)
     }
     display()
+}
+
+
+function previousPage() {
+    if (pageNumber > 1) {
+        pageNumber -= 1;
+        display()
+    } else {
+        pageNumber === 1;
+        display()
+    }
+
+    console.log(pageNumber)
+
+}
+
+function nextPage() {
+    if (pageNumber >= 1 && pageNumber < Math.ceil(data.results.length / pageSize)) {
+        pageNumber += 1;
+        display();
+
+    } else {
+        pageNumber === Math.ceil(data.results.length / pageSize)
+        display();
+    }
+
+    console.log(pageNumber)
+
 }
 
 
@@ -97,8 +118,8 @@ function setup() {
     $("body").on("click", ".display", changePageNum);
     $("body").on("click", ".first", changePageNum)
     $("body").on("click", ".last", changePageNum)
-    $("body").on("click", ".previous", changePageNum)
-    $("body").on("click", ".next", changePageNum)
+    $("body").on("click", ".previous", previousPage)
+    $("body").on("click", ".next", nextPage)
     $("body").on("click", "#page_size", "option", display)
     $("body").on("click", "#page_size", "option", paginateMenu)
 
@@ -108,6 +129,11 @@ function setup() {
 
 $(document).ready(setup);
 
+// if (pageNumber > 1 && pageNumber <= Math.ceil(data.results.length / pageSize)) {
+//     $("#next").html(`<button class="next" id="${pageNumber + 1}">Next</button>`)
+//     $("#prev").html(`<button class="previous" id="${pageNumber - 1}">Prev.</button>`)
+
+// }
 
 
 
