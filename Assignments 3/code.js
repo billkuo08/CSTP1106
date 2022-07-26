@@ -54,6 +54,7 @@ function changePageNum() {
         $("#next").html(`<button class="next" id="${pageNumber}">Next</button>`)
     }
     display()
+    console.log(pageNumber)
 }
 
 
@@ -65,8 +66,9 @@ function previousPage() {
         pageNumber === 1;
         display()
     }
-
     console.log(pageNumber)
+
+
 
 }
 
@@ -79,8 +81,8 @@ function nextPage() {
         pageNumber === Math.ceil(data.results.length / pageSize)
         display();
     }
-
     console.log(pageNumber)
+
 
 }
 
