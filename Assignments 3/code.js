@@ -1,7 +1,7 @@
-infos = "";
+let infos = "";
 data = "";
-pageNumber = 1;
-pageSize = "";
+let pageNumber = 1;
+let pageSize = "";
 
 function process_response(x) {
     data = x
@@ -30,17 +30,17 @@ function backDropImg() {
 
 function display() {
     $("#results").empty();
-
     pageSize = Number(pageSize);
     firstIndex = pageSize * (pageNumber - 1);
-    lastIndex = pageSize * (pageNumber - 1) + (pageSize - 1)   
+    lastIndex = pageSize * (pageNumber - 1) + (pageSize - 1)
     for (i = firstIndex; i <= lastIndex && i < data.results.length; i++) {
         infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>    
         <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"height="300px">`;
-        z = `<button id="${data.results[i].backdrop_path}" class="backdropButton">Show big image</button><br><hr>`;      
-            $("#results").append(`${infos}<br>`);    
-            $("#results").append(z);       
-            }
+        z = `<button id="${data.results[i].backdrop_path}" class="backdropButton">Show big image</button><br><hr>`;
+        $("#results").append(`${infos}<br>`);
+        $("#results").append(z);
+
+    }
 
 }
 
@@ -48,11 +48,11 @@ function changePageNum() {
     pageNumber = $(this).attr("id");
     pageNumber = Number(pageNumber);
     console.log(pageNumber)
-
     if (pageNumber > 1) {
         $("#prev").html(`<button class="previous" id="${pageNumber}">Prev.</button>`)
         $("#next").html(`<button class="next" id="${pageNumber}">Next</button>`)
     }
+
     display()
 
 }
@@ -87,14 +87,11 @@ function nextPage() {
 }
 
 
-
-
-
 function paginateMenu() {
     $("#button").empty();
     for (i = 1; i <= Math.ceil(data.results.length / pageSize); i++) {
         $("#first_page").html(`<button class="first" id=${1}>First</button>`)
-        $("#numbers").append(`<span><button class ="display" id="${i}">${i}</button></span>`)
+        $("#button").append(`<button class ="display" id="${i}">${i}</button>`)
         $("#last_page").html(`<button class="last" id=${Math.ceil(data.results.length / pageSize)}>Last</button>`)
 
     }
@@ -124,8 +121,6 @@ function setup() {
     $("body").on("click", ".next", nextPage)
     $("body").on("click", "#page_size", "option", display)
     $("body").on("click", "#page_size", "option", paginateMenu)
-
-
 
 }
 
