@@ -54,7 +54,7 @@ function changePageNum() {
         $("#next").html(`<button class="next" id="${pageNumber}">Next</button>`)
     }
     display()
-    console.log(pageNumber)
+    
 }
 
 
