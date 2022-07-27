@@ -33,14 +33,14 @@ function display() {
 
     pageSize = Number(pageSize);
     firstIndex = pageSize * (pageNumber - 1);
-    lastIndex = pageSize * (pageNumber - 1) + (pageSize - 1)
-    for (i = firstIndex; i <= lastIndex && i < 20; i++) {
-        infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>
+    lastIndex = pageSize * (pageNumber - 1) + (pageSize - 1)   
+    for (i = firstIndex; i <= lastIndex && i < data.results.length; i++) {
+        infos = `<p>${data.results[i].original_title}</p>\n<p>${data.results[i].overview}</p>    
         <img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"height="300px">`;
-        $("#results").append(`${infos}<br>`);
-        z = `<button id="${data.results[i].backdrop_path}" class="backdropButton">Show big image</button><br><hr>`;
-        $("#results").append(z)
-    }
+        z = `<button id="${data.results[i].backdrop_path}" class="backdropButton">Show big image</button><br><hr>`;      
+            $("#results").append(`${infos}<br>`);    
+            $("#results").append(z);       
+            }
 
 }
 
@@ -54,7 +54,7 @@ function changePageNum() {
         $("#next").html(`<button class="next" id="${pageNumber}">Next</button>`)
     }
     display()
-    
+
 }
 
 
