@@ -94,7 +94,7 @@ function paginateMenu() {
     $("#button").empty();
     for (i = 1; i <= Math.ceil(data.results.length / pageSize); i++) {
         $("#first_page").html(`<button class="first" id=${1}>First</button>`)
-        $("#button").append(`<button class ="display" id="${i}">${i}</button>`)
+        $("#numbers").append(`<span><button class ="display" id="${i}">${i}</button></span>`)
         $("#last_page").html(`<button class="last" id=${Math.ceil(data.results.length / pageSize)}>Last</button>`)
 
     }
@@ -131,11 +131,7 @@ function setup() {
 
 $(document).ready(setup);
 
-// if (pageNumber > 1 && pageNumber <= Math.ceil(data.results.length / pageSize)) {
-//     $("#next").html(`<button class="next" id="${pageNumber + 1}">Next</button>`)
-//     $("#prev").html(`<button class="previous" id="${pageNumber - 1}">Prev.</button>`)
 
-// }
 
 
 
