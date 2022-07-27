@@ -14,39 +14,34 @@
             float: left;
         }
 
-        button {
-            float:left;
+        #first_page, #prev, #button,#next, #last_page {
+            float: left;
 
-        }     
-        
-        
+        }
     </style>
 
 </head>
 
 <body>
     <article>
-        <section>
-            <select name="page_size" id="page_size">
-                <option value="3">3</option>
-                <option value="5">5</option>
-                <option value="10">10</option>
-                <option value="20">20</option>
-            </select>
-            <br>
-            Enters a keyword of movie names
-            <input type="text" id="moviesname" value="over"><br>
-            <button id="getResults">Search</button>
-            <br>
-            <p> <b>Click a number not named 1 to see all the buttons</b></p>
 
+        <select name="page_size" id="page_size">
+            <option value="3">3</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="20">20</option>
+        </select>
+        <br>
+        Enters a keyword of movie names
+        <input type="text" id="moviesname" value="over"><button id="getResults">Search</button>
+        <br>
+        <p> <b>Click a number not named 1 to see all the buttons</b></p>
+        <section>
             <div id="first_page"></div>
             <div id="prev"></div>
             <div id="button"></div>
             <div id="next"></div>
             <div id="last_page"></div>
-
-
         </section>
         <br>
         <div id="results"></div>
