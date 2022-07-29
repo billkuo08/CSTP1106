@@ -1,5 +1,5 @@
 let infos = "";
-data = "";
+let data = "";
 let pageNumber = 1;
 let pageSize = "";
 
