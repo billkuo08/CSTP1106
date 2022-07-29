@@ -64,5 +64,9 @@ img {
     #dummy_div {
         flex-direction: column;
         gap: 0px;
+
+    }
+    main{
+        margin-top: 10px;
     }
 }
