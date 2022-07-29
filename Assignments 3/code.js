@@ -30,6 +30,7 @@ function backDropImg() {
 
 function display() {
     $("#results").empty();
+    
     pageSize = Number(pageSize);
     firstIndex = pageSize * (pageNumber - 1);
     lastIndex = pageSize * (pageNumber - 1) + (pageSize - 1)
@@ -112,6 +113,7 @@ function setup() {
     pageSize = $("#page_size option:selected").val();
     $("#page_size").change(function () {
         pageSize = $("#page_size option:selected").val();
+        pageNumber = 1;
     });
 
     $("body").on("click", ".display", changePageNum);
