@@ -32,8 +32,32 @@ nav a:hover {
     color: #333;
 }
 
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+}
+
 #left_column {
     margin-top: 10px;
     margin-left: 10px;
-    
+
+}
+.article{
+    float: center;
+}
+
+
+@media screen and (max-width: 550px) {
+
+    main,
+    nav,
+    #dummy_div {
+        flex-direction: column;
+        gap: 0px;
+
+    }
+    main{
+        margin-top: 10px;
+    }
 }
