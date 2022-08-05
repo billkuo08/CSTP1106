@@ -41,9 +41,21 @@ h1 {
 #left_column {
     margin-top: 10px;
     margin-left: 10px;
+    
 
 }
-.article{
+
+#right_column {
+    margin-top: 10px;
+    margin-right: 50px;
+    float: right;
+    display: inline-flex;
+    flex-direction: row;
+    
+
+}
+
+.article {
     float: center;
 }
 
@@ -57,7 +69,8 @@ h1 {
         gap: 0px;
 
     }
-    main{
+
+    main {
         margin-top: 10px;
     }
 }
