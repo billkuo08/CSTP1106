@@ -14,7 +14,11 @@
             float: left;
         }
 
-        #first_page, #prev, #button,#next, #last_page {
+        #first_page,
+        #prev,
+        #button,
+        #next,
+        #last_page {
             float: left;
 
         }
@@ -22,7 +26,10 @@
         #results {
             display: inline-flex;
             flex-direction: row;
-
+            flex-wrap: wrap;
+            gap: 10px;
+            align-content: flex-start;
+            flex-shrink: inherit;
         }
     </style>
 
@@ -50,8 +57,9 @@
             <div id="last_page"></div>
         </section>
         <br>
-        <div id="results"></div>
-
+        <main>
+            <div id="results"></div>
+        </main>
 
     </article>
 

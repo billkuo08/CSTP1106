@@ -35,7 +35,7 @@ function display() {
     firstIndex = pageSize * (pageNumber - 1);
     lastIndex = pageSize * (pageNumber - 1) + (pageSize - 1)
     for (i = firstIndex; i <= lastIndex && i < data.results.length; i++) {
-        infos = `<p><img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"height="300px"></p>`;
+        infos = `<p><img src="https://image.tmdb.org/t/p/w500/${data.results[i].poster_path}"height=200px"; "border-radius=5px"></p>`;
         // z = `<button id="${data.results[i].backdrop_path}" class="backdropButton">Show big image</button><br><hr>`;
         $("#results").append(`${infos}<br>`);
         // $("#results").append(z);
